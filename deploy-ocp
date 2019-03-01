@@ -1,0 +1,55 @@
+[OSEv3:children]
+masters
+nodes
+etcd
+
+
+# Set variables common for all OSEv3 hosts
+[OSEv3:vars]
+ansible_ssh_user=root
+openshift_docker_additional_registries=registry.aq.lab:5000
+openshift_docker_insecure_registries=registry.aq.lab:5000
+openshift_docker_blocked_registries=registry.access.redhat.com,docker.io,registry.redhat.io
+osm_etcd_image=registry.aq.lab:5000/rhel7/etcd:3.2.22
+openshift_hosted_infra_selector=""
+openshift_override_hostname_check=True
+openshift_disable_check=disk_availability,memory_availability,docker_image_availability,docker_storage,package_availability,package_version
+#openshift_disable_check=memory_availability,disk_availability,package_availability
+openshift_deployment_type=openshift-enterprise
+openshift_release=v3.11
+oreg_url=registry.aq.lab:5000/openshift3/ose-${component}:${version}
+openshift_examples_modify_imagestreams=true
+debug_level=2
+openshift_enable_service_catalog=false
+os_firewall_use_firewalld=True
+openshift_clock_enabled=True
+openshift_router_selector='node-role.kubernetes.io/infra=true'
+openshift_registry_selector='node-role.kubernetes.io/infra=true'
+openshift_examples_modify_imagestreams=true
+os_sdn_network_plugin_name='redhat/openshift-ovs-multitenant'
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+openshift_master_htpasswd_users={'admin': '$apr1$pQ3QPByH$5BDkrp0m5iclRske.M0m.0'}
+
+openshift_master_default_subdomain=apps.ocp-test.aq.lab
+openshift_master_cluster_hostname=api-ocp-test.aq.lab
+openshift_master_cluster_public_hostname=ocp-test.aq.lab
+
+
+openshift_enable_unsupported_configurations=true
+
+openshift_cluster_monitoring_operator_install=true
+
+openshift_metrics_install_metrics=true
+
+
+# host group for masters
+[masters]
+ocp-test.aq.lab openshift_schedulable=true 
+
+# host group for etcd
+[etcd]
+ocp-test.aq.lab
+
+[nodes]
+ocp-test.aq.lab openshift_node_group_name='node-config-all-in-one'
+
