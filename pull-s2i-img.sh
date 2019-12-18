@@ -27,3 +27,9 @@
  docker pull registry.redhat.io/redhat-sso-7/sso71-openshift
  docker pull registry.redhat.io/rhscl/nodejs-6-rhel7
  docker pull registry.redhat.io/rhscl/mariadb-101-rhel7
+ docker pull registry.redhat.io/openshift3/jenkins-agent-maven-35-rhel7 
+ docker pull registry.redhat.io/openshift3/jenkins-agent-nodejs-8-rhel7
+ docker pull registry.redhat.io/openshift3/jenkins-slave-maven-rhel7     
+ docker pull registry.redhat.io/openshift3/jenkins-slave-nodejs-rhel7   
+ docker pull registry.redhat.io/openshift3/jenkins-2-rhel7         
+ docker pull registry.redhat.io/openshift3/jenkins-slave-base-rhel7
