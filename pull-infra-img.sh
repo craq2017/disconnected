@@ -55,3 +55,5 @@
  docker pull registry.redhat.io/openshift3/snapshot-provisioner:v3.11.82
  docker pull registry.redhat.io/rhel7/etcd:3.2.22
  docker pull registry.redhat.io/openshift3/ose-efs-provisioner:v3.11.82
+ docker pull registry.redhat.io/openshift3/ose-recycler:latest registry.redhat.io/openshift3/ose-recycler:v3.11.82
+ docker pull registry.redhat.io/openshift3/image-inspector:latest registry.redhat.io/openshift3/image-inspector:v3.11.82
